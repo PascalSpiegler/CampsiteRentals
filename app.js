@@ -22,7 +22,7 @@ var commentRoutes 		= require('./routes/comments'),
 
 //COPY THESE TO NEW APPS
 //27017 is mongod's port
-mongoose.connect("mongodb://localhost:27017/Campbnb_v12", {useNewUrlParser:true, useUnifiedTopology:true});
+mongoose.connect("mongodb+srv://Pongkale:SlicksterMongo123!cluster0.epb9k.mongodb.net/<dbname>?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true});
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'))
 app.set("view engine", "ejs");

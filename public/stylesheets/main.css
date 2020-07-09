@@ -1,0 +1,16 @@
+/* All images within thumbnails */
+.thumbnail img {
+	width: 100%
+}
+
+.thumbnail {
+	padding: 0;
+}
+
+.caption-full{
+	padding: 9px;
+}
+
+.deleteForm{
+	display:inline;
+}

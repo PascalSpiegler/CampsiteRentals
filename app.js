@@ -22,7 +22,13 @@ var commentRoutes 		= require('./routes/comments'),
 
 //COPY THESE TO NEW APPS
 //27017 is mongod's port
-mongoose.connect("mongodb+srv://Pongkale:SlicksterMongo123!cluster0.epb9k.mongodb.net/<dbname>?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true});
+
+
+mongoose.connect("mongodb+srv://NTC:NTCMongo123!@cluster0.6tfbr.mongodb.net/<dbname>?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true}).then(() =>{
+	console.log("Connected to MongoLab!")
+}).catch(err => {
+	console.log("ERROR:" , err.message)
+})
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'))
 app.set("view engine", "ejs");

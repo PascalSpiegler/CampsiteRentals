@@ -37,13 +37,15 @@ router.get('/login', function(req, res){
 })
 
 //Login logic
-router.post('/login', middleware.loginSuccess, passport.authenticate('local', {
+router.post('/login', passport.authenticate('local', {
 	//If the login works, redirects to campgrounds
 	successRedirect:'/campgrounds',
 	
 	//If the login fails, redirects to /login again
-	failureRedirect:'/login'
+	failureRedirect:'/login',
+	failureFlash: true
 }), function(req, res){
+	
 	
 })
 

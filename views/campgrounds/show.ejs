@@ -19,7 +19,7 @@
 					<p><%=campground.description%></p>
 					<p> <em></en>Submitted by <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em></p>
 					<!-- 	Inside app.js we said res.locals.currentUser = req.user, which makes curretUser global			 -->
-					<% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+					<% if((currentUser && campground.author.id.equals(currentUser._id)) || (currentUser && currentUser.isAdmin)){ %>
 						<a class = 'btn btn-xs btn-primary' href = '/campgrounds/<%=campground._id%>/edit'>Edit</a>
 						<form class = 'deleteForm' action = '/campgrounds/<%=campground._id%>?_method=DELETE' method = 'POST'>
 						<button class = 'btn btn-xs btn-danger'>Delete</button>

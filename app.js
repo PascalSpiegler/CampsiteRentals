@@ -31,7 +31,6 @@ app.use(flash());
 
 
 //PASSPORT CONFIGURATION
-
 app.use(require('express-session')({
 	secret: "NoteTakingClub!",
 	resave: false,

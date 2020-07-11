@@ -39,6 +39,8 @@ app.use(express.static("public"));
 app.use(methodOverride('_method'));
 app.use(flash());
 
+console.log(process.env.IP);
+
 
 
 //PASSPORT CONFIGURATION
@@ -72,7 +74,7 @@ app.use('/campgrounds', campgroundRoutes);
 
 //(process.env.PORT, process.env.IP)
 
-app.listen(3000, function(){
+app.listen(process.env.PORT, process.env.IP, function(){
 	console.log("Campbnb server started on port 3000!");
 })
 

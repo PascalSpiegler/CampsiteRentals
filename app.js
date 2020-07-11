@@ -17,30 +17,17 @@ var commentRoutes 		= require('./routes/comments'),
 	campgroundRoutes 	= require('./routes/campgrounds'),
 	indexRoutes 		= require('./routes/index')
 
-//seedDB();
-
-
-//COPY THESE TO NEW APPS
-//27017 is mongod's port
-
-//mongodb://localhost/yelp_camp_v10
 
 mongoose.connect(process.env.DATABASEURL, {useNewUrlParser:true, useUnifiedTopology:true})
 
-// mongoose.connect("mongodb+srv://NTC:NTCMongo123!@cluster0.6tfbr.mongodb.net/<dbname>?retryWrites=true&w=majority", {useNewUrlParser:true, useUnifiedTopology:true}).then(() =>{
-// 	console.log("Connected to MongoLab!")
-// }).catch(err => {
-// 	console.log("ERROR:" , err.message)
-// })
+
+app.locals.moment = require('moment');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + '/public'))
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(methodOverride('_method'));
 app.use(flash());
-
-console.log(process.env.IP);
-
 
 
 //PASSPORT CONFIGURATION
@@ -72,13 +59,7 @@ app.use('/campgrounds/:id/comments', commentRoutes);
 app.use('/campgrounds', campgroundRoutes);
 
 
-//(process.env.PORT, process.env.IP)
-
 app.listen(process.env.PORT, process.env.IP, function(){
 	console.log("Campbnb server started on port 3000!");
 })
 
-
-// app.listen(process.env.PORT, process.env.IP, function(){
-// 	console.log("Campbnb server started for Heroku!");
-// })
